@@ -1,0 +1,25 @@
+#include<bits/stdc++.h>
+using namespace std;
+class Student
+{
+    public:
+    int id;
+    int cls;
+    Student(int id, int cls)
+    {
+        this->id=id;
+        this->cls=cls;
+    }
+};
+Student* fun()
+{
+    Student a(781,11);
+    Student *p=&a;
+    return p;
+}
+int main()
+{
+    Student *b=fun();
+    cout<<b->cls<<" "<<b->id;
+    return 0;
+}
