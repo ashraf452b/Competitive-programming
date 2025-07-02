@@ -58,7 +58,7 @@ while(t--)
     int l = 0, r = 1e8, mid, ans;
     while (l <= r)
     {
-        mid = (l+r) / 2;
+        mid = (l + r) / 2;
         if (ok(mid))
         {
             ans = mid;
@@ -75,7 +75,6 @@ while(t--)
     {
         cout << val << " ";
     }
-    
 }
 
    return 0;

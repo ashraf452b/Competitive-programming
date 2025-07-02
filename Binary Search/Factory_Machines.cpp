@@ -1,3 +1,4 @@
+//CSES PROBLEM
 #include <bits/stdc++.h>
 using namespace std;
 
@@ -13,39 +14,39 @@ int t=1;
 // cin>>t;
 while(t--)
 {
-    int n,m;
-    cin>>n>>m;
+    int n, m;
+    cin >> n >> m;
     vector<int> v(n);
-    for(int i=0;i<n;i++)
+    for (int i = 0; i < n; i++)
     {
-        cin>>v[i];
+        cin >> v[i];
     }
-    ll l=1,r=1e18,mid,ans;
-    auto ok=[&](ll sec)
+    ll l = 1, r = 1e18, mid, ans;
+    auto ok = [&](ll sec)
     {
-        ll cnt=0;
-        for(int i=0;i<n;i++)
+        ll cnt = 0;
+        for (int i = 0; i < n; i++)
         {
-            cnt+=(sec/v[i]);
-            if(cnt>=m)
+            cnt += (sec / v[i]);
+            if (cnt >= m)
                 return true;
         }
         return false;
     };
-    while(l<=r)
+    while (l <= r)
     {
-        mid=(l+r)/2;
-        if(ok(mid))
+        mid = (l + r) / 2;
+        if (ok(mid))
         {
-            ans=mid;
-            r=mid-1;
+            ans = mid;
+            r = mid - 1;
         }
         else
         {
-            l=mid+1;
+            l = mid + 1;
         }
     }
-    cout<<ans<<endl;
+    cout << ans << endl;
 }
 
    return 0;

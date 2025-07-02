@@ -13,24 +13,24 @@ int t=1;
 cin>>t;
 while(t--)
 {
-    int n,k;
-    cin>>n>>k;
+    int n, k;
+    cin >> n >> k;
     vector<int> v(n);
-    for(int i=0;i<n;i++)
+    for (int i = 0; i < n; i++)
     {
-        cin>>v[i];
+        cin >> v[i];
     }
-    sort(v.rbegin(),v.rend());
+    sort(v.rbegin(), v.rend());
     vector<int> pre(n);
-    pre[0]=v[0];
-    for(int i=1;i<n;i++)
+    pre[0] = v[0];
+    for (int i = 1; i < n; i++)
     {
-        pre[i]=pre[i-1]+v[i];
+        pre[i] = pre[i - 1] + v[i];
     }
-    while(k--)
+    while (k--)
     {
         int a;
-        cin>>a;
+        cin >> a;
         // int l=0,r=n-1,ans=-1,mid;
         // while(l<=r)
         // {
@@ -45,18 +45,18 @@ while(t--)
         //         l=mid+1;
         //     }
         // }
-    
+
         // if(ans == -1)
         //     cout<<-1<<endl;
         //         else
         //             cout<<++ans<<endl;
-        
-        auto it=lower_bound(all(pre),a);
-        int idx=it-pre.begin();
-        if(it == pre.end())
-            cout<<-1<<endl;
-                else
-                    cout<<++idx<<endl;
+
+        auto it = lower_bound(all(pre), a);
+        int idx = it - pre.begin();
+        if (it == pre.end())
+            cout << -1 << endl;
+        else
+            cout << ++idx << endl;
     }
 }
 

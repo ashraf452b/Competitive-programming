@@ -13,46 +13,44 @@ int t=1;
 cin>>t;
 while(t--)
 {
-    ll n,k;
-    cin>>n>>k;
+    ll n, k;
+    cin >> n >> k;
     vector<ll> v(n);
-    for(ll i=0;i<n;i++)
+    for (ll i = 0; i < n; i++)
     {
-        cin>>v[i];
+        cin >> v[i];
     }
-    auto ok=[&](ll val)
+    auto ok = [&](ll val)
     {
-        ll cnt=0;
-        for(ll i=0;i<n;i++)
+        ll cnt = 0;
+        for (ll i = 0; i < n; i++)
         {
-            if(v[i]<val)
+            if (v[i] < val)
             {
-                cnt+=(val-v[i]);
-                if(cnt>k)
+                cnt += (val - v[i]);
+                if (cnt > k)
                 {
                     break;
                 }
             }
-            
         }
-        return cnt<=k;
+        return cnt <= k;
     };
-    ll l=0,r=1e10,ans,mid;
-    while(l<=r)
+    ll l = 0, r = 1e10, ans, mid;
+    while (l <= r)
     {
-        mid=l+(r-l)/2;
-        if(ok(mid))
+        mid = l + (r - l) / 2;
+        if (ok(mid))
         {
-            ans=mid;
-            l=mid+1;
+            ans = mid;
+            l = mid + 1;
         }
         else
         {
-            r=mid-1;
+            r = mid - 1;
         }
-        
     }
-    cout<<ans<<endl;
+    cout << ans << endl;
 }
 
    return 0;

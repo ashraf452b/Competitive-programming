@@ -13,33 +13,32 @@ int t=1;
 // cin>>t;
 while(t--)
 {
-    int n,k;
-    cin>>n>>k;
+    int n, k;
+    cin >> n >> k;
     vector<int> v(n);
-    for(int i=0;i<n;i++)
+    for (int i = 0; i < n; i++)
     {
-        cin>>v[i];
+        cin >> v[i];
     }
-    while(k--)
+    while (k--)
     {
         int a;
-        cin>>a;
-        int l=0,r=n-1,ans=-1,mid;
-        while(l<=r)
+        cin >> a;
+        int l = 0, r = n - 1, ans = -1, mid;
+        while (l <= r)
         {
-            mid=(l+r)/2;
-            if(a>=v[mid])
+            mid = (l + r) / 2;
+            if (a >= v[mid])
             {
-                ans=mid;
-                l=mid+1;
+                ans = mid;
+                l = mid + 1;
             }
-            else 
+            else
             {
-                r=mid-1;
+                r = mid - 1;
             }
-            
         }
-        cout<<++ans<<endl;
+        cout << ++ans << endl;
     }
 }
 

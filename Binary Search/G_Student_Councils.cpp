@@ -25,7 +25,7 @@ while(t--)
         ll cnt = 0;
         for (int i = 0; i < n; i++)
         {
-            if(val==0)
+            if (val == 0)
                 return true;
             if (v[i] >= val)
             {
@@ -38,7 +38,7 @@ while(t--)
         }
         return cnt >= val * k;
     };
-    ll l = 0, r = 4e10, mid, ans=0;
+    ll l = 0, r = 4e10, mid, ans = 0;
     while (l <= r)
     {
         mid = l + (r - l) / 2;

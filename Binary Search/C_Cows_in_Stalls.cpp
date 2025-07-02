@@ -13,41 +13,41 @@ int t=1;
 // cin>>t;
 while(t--)
 {
-    ll n,m;
-    cin>>n>>m;
+    ll n, m;
+    cin >> n >> m;
     vector<int> v(n);
-    for(int i=0;i<n;i++)
+    for (int i = 0; i < n; i++)
     {
-        cin>>v[i];
+        cin >> v[i];
     }
-    auto ok=[&](int val)
+    auto ok = [&](int val)
     {
-        int cnt=1,last=v[0];
-        for(int i=1;i<n;i++)
+        int cnt = 1, last = v[0];
+        for (int i = 1; i < n; i++)
         {
-            if(v[i]-last>=val)
+            if (v[i] - last >= val)
             {
                 cnt++;
-                last=v[i];
+                last = v[i];
             }
         }
-        return cnt>=m;
+        return cnt >= m;
     };
-    ll l=0,r=1e9,ans=0,mid;
-    while(l<=r)
+    ll l = 0, r = 1e9, ans = 0, mid;
+    while (l <= r)
     {
-        mid=(l+r)/2;
-        if(ok(mid))
+        mid = (l + r) / 2;
+        if (ok(mid))
         {
-            l=mid+1;
-            ans=mid;
+            l = mid + 1;
+            ans = mid;
         }
         else
         {
-            r=mid-1;
+            r = mid - 1;
         }
     }
-    cout<<ans<<endl;
+    cout << ans << endl;
 }
 
    return 0;
