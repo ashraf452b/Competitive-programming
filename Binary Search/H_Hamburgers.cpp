@@ -26,7 +26,7 @@ while(t--)
     }
     int r;
     cin>>r;
-
+    //unsolved
 }
 
    return 0;
