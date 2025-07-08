@@ -19,8 +19,8 @@ while(t--)
     for(int i=0;i<n;i++)
     {
         cin>>v[i];
-
     }
+    
     auto ok=[&](ll a,ll b)
     {
         while(b)
