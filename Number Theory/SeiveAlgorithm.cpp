@@ -26,14 +26,23 @@ while(t--)
             }
         }
     }
-    for(int i=2;i<=n;i++)
-    {
-        if(prime[i])
-        {
-            cout<<i<<" ";
-        }
-    }
+    // for(int i=2;i<=n;i++)
+    // {
+    //     if(prime[i])
+    //     {
+    //         cout<<i<<" ";
+    //     }
+    // }
+
+
+    int isprime;
+    cin>>isprime;
+    if(prime[isprime])
+        cout<<"Prime Number"<<endl;
+            else
+                cout<<"Non - prime"<<endl;
 }
 
    return 0;
 }
+
