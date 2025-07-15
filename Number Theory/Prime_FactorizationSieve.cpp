@@ -5,16 +5,16 @@ using namespace std;
 #define pb push_back
 #define all(x) (x).begin(), (x).end()
 #define FAST_IO ios::sync_with_stdio(false); cin.tie(nullptr);
-ll maxN=1e6+10;;
-vector<bool> prime(maxN+1,true);
+ll maxN=1e6+10;
 vector<ll> allprimes;
+vector<bool> prime(maxN+1,true);
 void sieve()
 {
     for(int i=2;i<maxN;i++)
     {
         if(prime[i])
         {
-            allprimes.pb(i);
+            allprimes.push_back(i);
             for(int j=i+i;j<=maxN;j+=i)
             {
                 prime[j]=false;
@@ -38,14 +38,14 @@ int main() {
                 break;
             }
             factor.push_back(allprimes[idx]);
-            n/=allprimes[idx];
+            n=n/allprimes[idx];
         }
         idx++;
     }
-    sort(all(factor));
     for(auto val : factor)
         cout<<val<<" ";
     cout<<endl;
+
 
    return 0;
 }
