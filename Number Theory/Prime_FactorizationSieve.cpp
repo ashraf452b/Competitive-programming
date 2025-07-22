@@ -28,7 +28,7 @@ int main() {
     int n;
     cin>>n;
     vector<int> factor;
-    int idx=0;
+    int idx=0;\
     while(n>1)
     {
         while(true)
