@@ -1,7 +1,7 @@
 /**
 *   In the name of Allah, the Most Gracious, the Most Merciful.
 *   Author : Ashraful Islam
-*   Time & Date : 16:01:36 14/08/2025
+*   Time & Date : 23:41:17 17/08/2025
 **/
 #include <bits/stdc++.h>
 #include <ext/pb_ds/assoc_container.hpp>
@@ -23,45 +23,55 @@ using pbds = tree<T, null_type, less<T>, rb_tree_tag, tree_order_statistics_node
 bool flag;
 void rhafsolve()
 {
-    int n;
-    cin>>n;
-    vector<int> v(n);
-    for(int i=0;i<n;i++) cin>>v[i];
-    flag=false;
+    int n,k;
+    cin>>n>>k;
+    string s;
+    cin>>s;
+    int a=0,b=0;
     for(int i=0;i<n;i++)
     {
-        if(v[0] != v[i])
-        {
-            flag=true;
-            break;
-        }
+        if(s[i]=='A')
+            a++;
+                else b++;
     }
-    if(!flag)
+    if(k==b)
     {
-        no;
-        return;
+        cout<<0<<endl;
     }
-    yes;
-    for(int i=1;i<n;i++)
+    else if(b<k)
     {
-        if(v[0] != v[i])
+        cout<<1<<endl;
+        int diff = k - b;
+        int a_count = 0;
+        for (int i = 0; i < n; i++)
         {
-            cout<<1<<" "<<i+1<<endl;
-        }
-        else
-        {
-            for(int j=0;j<n;j++)
+            if (s[i] == 'A')
+                a_count++;
+            if (a_count == diff)
             {
-                if(v[0] != v[j])
-                {
-                    cout<<j+1<<" "<<i+1<<endl;
-                    break;
-                }
+                cout << i + 1 << " " << 'B' << endl;
+                return;
             }
         }
     }
+    else if(k<b)
+    {
+        cout<<1<<endl;
+        int diff = b - k;
+        int b_count = 0;
+        for (int i = 0; i < n; i++)
+        {
+            if (s[i] == 'B')
+                b_count++;
+            if (b_count == diff)
+            {
+                cout << i + 1 << " " << 'A' << endl;
+                return;
+            }
+        }
+    }
+
 }
-    
 int main() {
     FAST_IO;
 

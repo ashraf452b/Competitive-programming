@@ -1,7 +1,7 @@
 /**
 *   In the name of Allah, the Most Gracious, the Most Merciful.
 *   Author : Ashraful Islam
-*   Time & Date : 16:01:36 14/08/2025
+*   Time & Date : 01:39:45 20/08/2025
 **/
 #include <bits/stdc++.h>
 #include <ext/pb_ds/assoc_container.hpp>
@@ -11,7 +11,7 @@ using namespace __gnu_pbds;
 template <typename T>
 using pbds = tree<T, null_type, less<T>, rb_tree_tag, tree_order_statistics_node_update>;
 
-#define FAST_IO ios::sync_with_stdio(false); cin.tie(nullptr);
+#define MESSI ios::sync_with_stdio(false); cin.tie(nullptr);
 #define ll long long
 #define pb push_back
 #define all(x) (x).begin(), (x).end()
@@ -23,47 +23,54 @@ using pbds = tree<T, null_type, less<T>, rb_tree_tag, tree_order_statistics_node
 bool flag;
 void rhafsolve()
 {
-    int n;
-    cin>>n;
-    vector<int> v(n);
-    for(int i=0;i<n;i++) cin>>v[i];
-    flag=false;
-    for(int i=0;i<n;i++)
-    {
-        if(v[0] != v[i])
-        {
-            flag=true;
-            break;
-        }
-    }
-    if(!flag)
-    {
-        no;
-        return;
-    }
-    yes;
-    for(int i=1;i<n;i++)
-    {
-        if(v[0] != v[i])
-        {
-            cout<<1<<" "<<i+1<<endl;
-        }
-        else
-        {
-            for(int j=0;j<n;j++)
-            {
-                if(v[0] != v[j])
-                {
-                    cout<<j+1<<" "<<i+1<<endl;
-                    break;
-                }
-            }
-        }
-    }
-}
+    string s;
+    cin>>s;
+    vector<int> caps,noncaps;
     
+    for(int i=0;i<s.size();i++)
+    {
+        if(islower(s[i]) && s[i] != 'b')
+        {
+            noncaps.pb(i);
+        }
+        else if(isupper(s[i]) && s[i] != 'B')
+        {
+            caps.pb(i);
+        }
+        if(s[i]=='b')
+        {
+            s[i]=' ';
+            if(!noncaps.empty())
+            {
+                s[noncaps.back()]=' ';
+                noncaps.pop_back();
+            }
+            continue;
+
+        }
+        if(s[i]=='B')
+        {
+            s[i]=' ';
+            if(!caps.empty())
+            {
+                s[caps.back()]=' ';
+                caps.pop_back();
+            }
+            continue;
+
+        }
+
+        
+    }
+    for(auto ch : s)
+    {
+        if(ch != ' ')
+        cout<<ch;
+    }
+    cout<<endl;
+}
 int main() {
-    FAST_IO;
+    MESSI;
 
     int t = 1;
     cin >> t;

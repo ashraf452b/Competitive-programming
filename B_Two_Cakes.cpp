@@ -1,7 +1,7 @@
 /**
 *   In the name of Allah, the Most Gracious, the Most Merciful.
 *   Author : Ashraful Islam
-*   Time & Date : 16:01:36 14/08/2025
+*   Time & Date : 02:03:32 19/08/2025
 **/
 #include <bits/stdc++.h>
 #include <ext/pb_ds/assoc_container.hpp>
@@ -23,50 +23,22 @@ using pbds = tree<T, null_type, less<T>, rb_tree_tag, tree_order_statistics_node
 bool flag;
 void rhafsolve()
 {
-    int n;
-    cin>>n;
-    vector<int> v(n);
-    for(int i=0;i<n;i++) cin>>v[i];
-    flag=false;
-    for(int i=0;i<n;i++)
+    int a,b,c;
+    cin>>a>>b>>c;
+    if(b+c==a)
     {
-        if(v[0] != v[i])
-        {
-            flag=true;
-            break;
-        }
-    }
-    if(!flag)
-    {
-        no;
+        cout<<1<<endl;
         return;
     }
-    yes;
-    for(int i=1;i<n;i++)
-    {
-        if(v[0] != v[i])
-        {
-            cout<<1<<" "<<i+1<<endl;
-        }
-        else
-        {
-            for(int j=0;j<n;j++)
-            {
-                if(v[0] != v[j])
-                {
-                    cout<<j+1<<" "<<i+1<<endl;
-                    break;
-                }
-            }
-        }
-    }
+    int ans=INT_MAX;
+    int l=0,r
+
 }
-    
 int main() {
     FAST_IO;
 
     int t = 1;
-    cin >> t;
+    // cin >> t;
     while (t--) 
     {
         rhafsolve();

@@ -1,7 +1,7 @@
 /**
 *   In the name of Allah, the Most Gracious, the Most Merciful.
 *   Author : Ashraful Islam
-*   Time & Date : 16:01:36 14/08/2025
+*   Time & Date : 22:42:55 16/08/2025
 **/
 #include <bits/stdc++.h>
 #include <ext/pb_ds/assoc_container.hpp>
@@ -24,44 +24,39 @@ bool flag;
 void rhafsolve()
 {
     int n;
-    cin>>n;
-    vector<int> v(n);
-    for(int i=0;i<n;i++) cin>>v[i];
-    flag=false;
-    for(int i=0;i<n;i++)
+    cin >> n;
+    vector<int> a(n);
+    for (int i = 0; i < n; i++) cin>>a[i];
+
+    int ans = 0;
+
+
+    for (int j = 1; j < n; j *= 2)
     {
-        if(v[0] != v[i])
+        for (int i = 0; i < n; i += 2 * j)
         {
-            flag=true;
-            break;
-        }
-    }
-    if(!flag)
-    {
-        no;
-        return;
-    }
-    yes;
-    for(int i=1;i<n;i++)
-    {
-        if(v[0] != v[i])
-        {
-            cout<<1<<" "<<i+1<<endl;
-        }
-        else
-        {
-            for(int j=0;j<n;j++)
+            int mid = i + j - 1;
+            int r = min(i + 2 * j - 1, n - 1);
+            if (mid >= r)
+                continue;
+
+            int mx = *max_element(a.begin() + i, a.begin() + mid + 1);
+            int mn = *min_element(a.begin() + mid + 1, a.begin() + r + 1);
+
+            if (mx > mn)
             {
-                if(v[0] != v[j])
+                for (int k = 0; k < j; k++)
                 {
-                    cout<<j+1<<" "<<i+1<<endl;
-                    break;
+                    if (i + k + j <= r)
+                        swap(a[i + k], a[i + k + j]);
                 }
+                ans++;
             }
         }
     }
+
+    if (is_sorted(all(a))) cout<<ans<<endl; else cout<<-1<<endl;
 }
-    
 int main() {
     FAST_IO;
 

@@ -1,7 +1,7 @@
 /**
-*   In the name of Allah, the Most Gracious, the Most Merciful.
-*   Author : Ashraful Islam
-*   Time & Date : 16:01:36 14/08/2025
+*  In the name of Allah, the Most Gracious, the Most Merciful.
+*  Author : Ashraful Islam
+*  Time & Date : 00:20:26 17/08/2025
 **/
 #include <bits/stdc++.h>
 #include <ext/pb_ds/assoc_container.hpp>
@@ -24,50 +24,38 @@ bool flag;
 void rhafsolve()
 {
     int n;
-    cin>>n;
+    cin >> n;
     vector<int> v(n);
-    for(int i=0;i<n;i++) cin>>v[i];
-    flag=false;
-    for(int i=0;i<n;i++)
+    for (int i = 0; i < n; i++) cin >> v[i];
+
+    if (v[0] == 1)
     {
-        if(v[0] != v[i])
+        v[0]=2;
+    }
+
+    for (int i = 1; i < n; i++)
+    {
+        if (v[i] == 1)
         {
-            flag=true;
-            break;
+            v[i]=2;
+        }
+        if (v[i] % v[i - 1] == 0)
+        {
+            v[i]++;
         }
     }
-    if(!flag)
-    {
-        no;
-        return;
-    }
-    yes;
-    for(int i=1;i<n;i++)
-    {
-        if(v[0] != v[i])
-        {
-            cout<<1<<" "<<i+1<<endl;
-        }
-        else
-        {
-            for(int j=0;j<n;j++)
-            {
-                if(v[0] != v[j])
-                {
-                    cout<<j+1<<" "<<i+1<<endl;
-                    break;
-                }
-            }
-        }
-    }
-}
     
+
+
+    for (auto val : v) cout << val << " ";
+    cout << endl;
+}
 int main() {
     FAST_IO;
 
     int t = 1;
     cin >> t;
-    while (t--) 
+    while (t--)
     {
         rhafsolve();
     }

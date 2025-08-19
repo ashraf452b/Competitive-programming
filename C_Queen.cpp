@@ -1,7 +1,7 @@
 /**
 *   In the name of Allah, the Most Gracious, the Most Merciful.
 *   Author : Ashraful Islam
-*   Time & Date : 16:01:36 14/08/2025
+*   Time & Date : 03:55:52 16/08/2025
 **/
 #include <bits/stdc++.h>
 #include <ext/pb_ds/assoc_container.hpp>
@@ -23,50 +23,58 @@ using pbds = tree<T, null_type, less<T>, rb_tree_tag, tree_order_statistics_node
 bool flag;
 void rhafsolve()
 {
-    int n;
-    cin>>n;
-    vector<int> v(n);
-    for(int i=0;i<n;i++) cin>>v[i];
-    flag=false;
-    for(int i=0;i<n;i++)
+    int n, m;
+    cin >> n;
+    vector<int> adj[n + 1], bad(n + 1), a(n + 1);
+    for (int i = 1; i <= n; i++)
     {
-        if(v[0] != v[i])
+        int x, y;
+        cin>>x>>y;
+        int u = x, v = i;
+        if (u != -1)
         {
-            flag=true;
-            break;
-        }
-    }
-    if(!flag)
-    {
-        no;
-        return;
-    }
-    yes;
-    for(int i=1;i<n;i++)
-    {
-        if(v[0] != v[i])
-        {
-            cout<<1<<" "<<i+1<<endl;
+            adj[u].push_back(v);
         }
         else
         {
-            for(int j=0;j<n;j++)
-            {
-                if(v[0] != v[j])
-                {
-                    cout<<j+1<<" "<<i+1<<endl;
-                    break;
-                }
-            }
+            m = i;
+        }
+        if (y == 1)
+        {
+            bad[u]++;
+            a[v] = 1;
         }
     }
+
+    vector<int> ans;
+    for (int i = 1; i <= n; i++)
+    {
+        if (m == i) continue;
+
+        if ((adj[i].size() == bad[i] && a[i] == 1))
+        {
+            ans.push_back(i);
+        }
+    }
+
+    if (ans.empty())
+    {
+        cout << -1 << endl;
+    }
+    else
+    {
+        for (int i = 0; i < ans.size(); i++)
+        {
+            cout << ans[i] << " ";
+        }
+        cout << endl;
+    }
 }
-    
 int main() {
     FAST_IO;
 
     int t = 1;
-    cin >> t;
+    // cin >> t;
     while (t--) 
     {
         rhafsolve();

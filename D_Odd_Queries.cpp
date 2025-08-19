@@ -33,13 +33,33 @@ void rhafsolve()
     {
         pre[i]=pre[i-1]+v[i];
     }
+    ll sum=pre[n-1];
+    
     while(k--)
     {
 
         int a,b,c;
         cin>>a>>b>>c;
         a--;b--;
-        int dif=b-a+1;
+        ll tmpsum=sum;
+        int diff=b-a+1;
+        ll addsum=1LL* c*diff;
+
+        ll rmv;
+
+        if(a>0)
+            rmv=pre[b]-pre[a-1];
+                else 
+                    rmv=pre[b];
+
+        tmpsum-=rmv;
+
+        ll totalsum=tmpsum+addsum;
+
+        if(totalsum %2==0) no; else yes;
+
+
+
         
         
 

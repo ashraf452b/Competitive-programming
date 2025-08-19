@@ -1,7 +1,7 @@
 /**
 *   In the name of Allah, the Most Gracious, the Most Merciful.
 *   Author : Ashraful Islam
-*   Time & Date : 16:01:36 14/08/2025
+*   Time & Date : 20:30:00 17/08/2025
 **/
 #include <bits/stdc++.h>
 #include <ext/pb_ds/assoc_container.hpp>
@@ -27,41 +27,31 @@ void rhafsolve()
     cin>>n;
     vector<int> v(n);
     for(int i=0;i<n;i++) cin>>v[i];
-    flag=false;
-    for(int i=0;i<n;i++)
+
+    if(n==1) 
     {
-        if(v[0] != v[i])
-        {
-            flag=true;
-            break;
-        }
-    }
-    if(!flag)
-    {
-        no;
+        cout<<0<<endl;
         return;
     }
-    yes;
+    int ans=0;
+    ans=v[n-1]-v[0];
+
+    for(int i=1;i<=n-1;i++)
+    {
+        ans=max(ans,v[i]-v[0]);
+    }
+
+    for(int i=0;i<=n-2;i++)
+    {
+        ans=max(ans,v[n-1]-v[i]);
+    }
+
     for(int i=1;i<n;i++)
     {
-        if(v[0] != v[i])
-        {
-            cout<<1<<" "<<i+1<<endl;
-        }
-        else
-        {
-            for(int j=0;j<n;j++)
-            {
-                if(v[0] != v[j])
-                {
-                    cout<<j+1<<" "<<i+1<<endl;
-                    break;
-                }
-            }
-        }
+        ans=max(v[i-1]-v[i],ans);
     }
+    cout<<ans<<endl;
 }
-    
 int main() {
     FAST_IO;
 
