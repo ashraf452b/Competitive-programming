@@ -1,7 +1,7 @@
 /**
 *   In the name of Allah, the Most Gracious, the Most Merciful.
 *   Author : Ashraful Islam
-*   Time & Date : 05:35:28 20/08/2025
+*   Time & Date : 21:05:12 20/08/2025
 **/
 #include <bits/stdc++.h>
 #include <ext/pb_ds/assoc_container.hpp>
@@ -23,50 +23,15 @@ using pbds = tree<T, null_type, less<T>, rb_tree_tag, tree_order_statistics_node
 bool flag;
 void rhafsolve()
 {
-    string s;
-    cin>>s;
-    if(s.size()==1)
+    int n;
+    cin >> n;
+    string s = "abc";
+    string res="";
+    for (int i = 0; i < n; i++)
     {
-        if(s=="a")
-        {
-            cout<<'w'<<s<<endl;
-        }
-        else
-        {
-            cout<<'a'<<s<<endl;
-        }
-        return;
+        res += s[i % 3];
     }
-    flag=false;
-    for(int i=s.size()-1;i>=1;i--)
-    {
-        if(s[i]==s[i-1])
-        {
-            if(s[i]=='a')
-            {
-                s.insert(i,"z");
-                flag=true;
-                break;
-            }
-            else 
-            {
-                s.insert(i,"a");
-                flag=true;
-                break;
-            }
-            
-        }
-    }
-    if(!flag)
-    {
-        if(s[0]=='a')
-        {
-            s.insert(0,"b");
-        }
-        else 
-            s.insert(0,"a");
-    }
-    cout<<s<<endl;
+    cout << res << endl;
 }
 int main() {
     MESSI;

@@ -1,7 +1,7 @@
 /**
 *   In the name of Allah, the Most Gracious, the Most Merciful.
 *   Author : Ashraful Islam
-*   Time & Date : 05:35:28 20/08/2025
+*   Time & Date : 20:49:31 20/08/2025
 **/
 #include <bits/stdc++.h>
 #include <ext/pb_ds/assoc_container.hpp>
@@ -23,51 +23,32 @@ using pbds = tree<T, null_type, less<T>, rb_tree_tag, tree_order_statistics_node
 bool flag;
 void rhafsolve()
 {
-    string s;
-    cin>>s;
-    if(s.size()==1)
+    int n;
+    cin >> n;
+    vector<int> v(n);
+    for (int i = 0; i < n; i++) cin >> v[i];
+
+    int ans = 1;
+
+    for (int i = 0; i < n; i++)
     {
-        if(s=="a")
+        int cnt = 1;
+        int last = v[i] % 2;
+
+        for (int j = i + 1; j < n; j++)
         {
-            cout<<'w'<<s<<endl;
-        }
-        else
-        {
-            cout<<'a'<<s<<endl;
-        }
-        return;
-    }
-    flag=false;
-    for(int i=s.size()-1;i>=1;i--)
-    {
-        if(s[i]==s[i-1])
-        {
-            if(s[i]=='a')
+            if (v[j] % 2 != last)
             {
-                s.insert(i,"z");
-                flag=true;
-                break;
+                cnt++;
+                last = v[j] % 2;
             }
-            else 
-            {
-                s.insert(i,"a");
-                flag=true;
-                break;
-            }
-            
         }
+        ans = max(ans, cnt);
     }
-    if(!flag)
-    {
-        if(s[0]=='a')
-        {
-            s.insert(0,"b");
-        }
-        else 
-            s.insert(0,"a");
-    }
-    cout<<s<<endl;
+
+    cout << ans << endl;
 }
+
 int main() {
     MESSI;
 
