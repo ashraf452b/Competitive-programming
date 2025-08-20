@@ -1,7 +1,7 @@
 /**
 *   In the name of Allah, the Most Gracious, the Most Merciful.
 *   Author : Ashraful Islam
-*   Time & Date : 01:39:45 20/08/2025
+*   Time & Date : 05:35:28 20/08/2025
 **/
 #include <bits/stdc++.h>
 #include <ext/pb_ds/assoc_container.hpp>
@@ -25,50 +25,42 @@ void rhafsolve()
 {
     string s;
     cin>>s;
-    vector<int> caps,noncaps;
-    
-    for(int i=0;i<s.size();i++)
+    if(s.size()==1)
     {
-        
-        if(s[i]=='b')
+        if(s=="a")
         {
-            s[i]=' ';
-            if(!noncaps.empty())
-            {
-                s[noncaps.back()]=' ';
-                noncaps.pop_back();
-            }
-            continue;
-
+            cout<<'w'<<s<<endl;
         }
-        if(s[i]=='B')
+        else
         {
-            s[i]=' ';
-            if(!caps.empty())
-            {
-                s[caps.back()]=' ';
-                caps.pop_back();
-            }
-            continue;
-
+            cout<<'a'<<s<<endl;
         }
-        if(islower(s[i]) )
-        {
-            noncaps.pb(i);
-        }
-        else if(isupper(s[i]) )
-        {
-            caps.pb(i);
-        }
-
-        
+        return;
     }
-    for(auto ch : s)
+    for(int i=s.size()-1;i>=1;i--)
     {
-        if(ch != ' ')
-        cout<<ch;
+        if(s[i]==s[i-1])
+        {
+            if(s[i]=='a')
+            {
+                s.insert(i,"z");
+                break;
+            }
+            else if(s[i]=='z')
+            {
+                s.insert(i,"a");
+                break;
+            }
+            else
+            {
+                string ch="";
+                ch=s[i]+1;
+                s.insert(i,ch);
+                break;
+            }
+        }
     }
-    cout<<endl;
+    cout<<s<<endl;
 }
 int main() {
     MESSI;
