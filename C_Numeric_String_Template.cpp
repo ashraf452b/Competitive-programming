@@ -1,7 +1,7 @@
 /**
 *   In the name of Allah, the Most Gracious, the Most Merciful.
 *   Author : Ashraful Islam
-*   Time & Date : 19:15:45 01/09/2025
+*   Time & Date : 22:43:58 29/08/2025
 **/
 #include <bits/stdc++.h>
 #include <ext/pb_ds/assoc_container.hpp>
@@ -23,7 +23,22 @@ using pbds = tree<T, null_type, less<T>, rb_tree_tag, tree_order_statistics_node
 bool flag;
 void rhafsolve()
 {
-    cout<<"Hello World"<<endl;
+    int n;  cin>>n;
+    vector<int> v(n);
+    for(int i=0;i<n;i++)    cin>>v[i];
+
+    int q;  cin>>q;
+    while(q--)
+    {
+        string s;   cin>>s;
+        map<int,char> a;
+        map<char,int> b;
+        for(int i=0;i<s.size();i++)
+        {
+            
+        }
+        
+    }
 }
 //observation
 /**
@@ -33,7 +48,7 @@ int main() {
     MESSI;
 
     int t = 1;
-    cin >> t;
+    // cin >> t;
     while (t--) 
     {
         rhafsolve();

@@ -1,7 +1,7 @@
 /**
 *   In the name of Allah, the Most Gracious, the Most Merciful.
 *   Author : Ashraful Islam
-*   Time & Date : 19:15:45 01/09/2025
+*   Time & Date : 22:30:12 30/08/2025
 **/
 #include <bits/stdc++.h>
 #include <ext/pb_ds/assoc_container.hpp>
@@ -23,7 +23,18 @@ using pbds = tree<T, null_type, less<T>, rb_tree_tag, tree_order_statistics_node
 bool flag;
 void rhafsolve()
 {
-    cout<<"Hello World"<<endl;
+    int n;
+    cin>>n;
+    vector<int> v(n);
+    for(int i=0;i<n;i++)    cin>>v[i];
+    ll sum=1;
+    sort(all(v));
+    v[0]+=1;
+    for(int i=0;i<n;i++)
+    {
+        sum*=v[i];
+    }
+    cout<<sum<<endl;
 }
 //observation
 /**
