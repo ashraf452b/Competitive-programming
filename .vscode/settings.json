@@ -16,6 +16,7 @@
         "valarray": "cpp",
         "ostream": "cpp",
         "random": "cpp",
-        "tuple": "cpp"
+        "tuple": "cpp",
+        "complex": "cpp"
     }
 }
