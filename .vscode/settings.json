@@ -18,6 +18,7 @@
         "random": "cpp",
         "tuple": "cpp",
         "complex": "cpp",
-        "new": "cpp"
+        "new": "cpp",
+        "chrono": "cpp"
     }
 }

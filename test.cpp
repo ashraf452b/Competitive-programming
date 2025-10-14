@@ -1,16 +1,10 @@
 /**
 *   In the name of Allah, the Most Gracious, the Most Merciful.
 *   Author : Ashraful Islam
-*   Time & Date : 19:15:45 01/09/2025
+*   Time & Date : 17:07:49 13/10/2025
 **/
 #include <bits/stdc++.h>
-#include <ext/pb_ds/assoc_container.hpp>
-#include <ext/pb_ds/tree_policy.hpp>
 using namespace std;
-using namespace __gnu_pbds;
-template <typename T>
-using pbds = tree<T, null_type, less<T>, rb_tree_tag, tree_order_statistics_node_update>;
-
 #define MESSI ios::sync_with_stdio(false); cin.tie(nullptr);
 #define ll long long
 #define pb push_back
@@ -20,10 +14,13 @@ using pbds = tree<T, null_type, less<T>, rb_tree_tag, tree_order_statistics_node
 #define gcd(a, b) __gcd((a), (b))
 #define yes cout << "YES\n"
 #define no cout << "NO\n"
-bool flag;
 void rhafsolve()
 {
-    cout<<"Hello World"<<endl;
+    int n;  cin>>n;
+    for(int i=0;i<n;i++)
+    {
+        cout<<"Hello World"<<endl;
+    }
 }
 //observation
 /**
@@ -33,7 +30,7 @@ int main() {
     MESSI;
 
     int t = 1;
-    cin >> t;
+    // cin >> t;
     while (t--) 
     {
         rhafsolve();

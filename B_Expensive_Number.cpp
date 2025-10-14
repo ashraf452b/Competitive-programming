@@ -1,7 +1,7 @@
 /**
 *   In the name of Allah, the Most Gracious, the Most Merciful.
 *   Author : Ashraful Islam
-*   Time & Date : 04:23:30 04/09/2025
+*   Time & Date : 04:58:06 28/09/2025
 **/
 #include <bits/stdc++.h>
 #include <ext/pb_ds/assoc_container.hpp>
@@ -23,10 +23,26 @@ using pbds = tree<T, null_type, less<T>, rb_tree_tag, tree_order_statistics_node
 bool flag;
 void rhafsolve()
 {
-    ll n;  cin>>n;
-    string s=to_string(n);
+    // ll n;   cin>>n;
+    // string s=to_string(n);
+    string s;   cin>>s;
+    int n=s.size();
+    int ans=0;
     
-
+    while (!s.empty() && s.back() == '0') 
+    {
+        s.pop_back();   
+        ans++;
+    }
+    for(int i=s.size()-2;i>=0;i--)
+    {
+        if(s[i] != '0')
+        {
+            ans++;
+        }
+    }
+    int val=n-ans;
+    cout<<ans<<endl;
 }
 //observation
 /**

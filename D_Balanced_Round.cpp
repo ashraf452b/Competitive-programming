@@ -1,7 +1,7 @@
 /**
 *   In the name of Allah, the Most Gracious, the Most Merciful.
 *   Author : Ashraful Islam
-*   Time & Date : 03:37:59 13/08/2025
+*   Time & Date : 02:02:27 09/09/2025
 **/
 #include <bits/stdc++.h>
 #include <ext/pb_ds/assoc_container.hpp>
@@ -11,7 +11,7 @@ using namespace __gnu_pbds;
 template <typename T>
 using pbds = tree<T, null_type, less<T>, rb_tree_tag, tree_order_statistics_node_update>;
 
-#define FAST_IO ios::sync_with_stdio(false); cin.tie(nullptr);
+#define MESSI ios::sync_with_stdio(false); cin.tie(nullptr);
 #define ll long long
 #define pb push_back
 #define all(x) (x).begin(), (x).end()
@@ -23,24 +23,42 @@ using pbds = tree<T, null_type, less<T>, rb_tree_tag, tree_order_statistics_node
 bool flag;
 void rhafsolve()
 {
-    int n,k;
-    cin>>n>>k;
-    vector<int> v(n);
-    for(int i=0;i<n;i++) cin>>v[i];
-    sort(all(v));
-    int cnt=0;
+    int n,k;    cin>>n>>k;
+    vector<int> a(n);
+    for(int i=0;i<n;i++)    cin>>a[i];
+
+    sort(all(a));
+
+    vector<vector<int>> ans(n);
+    int idx=0;
+    ans[idx].push_back(a[0]);
     for(int i=0;i<n-1;i++)
     {
-        if(abs(v[i]-v[i+1])>k)
+        int val=abs(a[i]-a[i+1]);
+
+        if(val>k)
         {
-            cnt++;
-            i++;
+            idx++;
+            ans[idx].push_back(a[i+1]);
+        }
+        else
+        {
+            ans[idx].push_back(a[i+1]);
         }
     }
-    cout<<cnt<<endl;
+    int mx=0;
+    for(int i=0;i<n;i++)
+    {
+        mx=max((int)ans[i].size(),mx);
+    }
+    cout<<n-mx<<endl;
 }
+//observation
+/**
+ 
+ **/
 int main() {
-    FAST_IO;
+    MESSI;
 
     int t = 1;
     cin >> t;

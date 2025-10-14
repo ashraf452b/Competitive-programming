@@ -17,7 +17,7 @@ using pbds = tree<T, null_type, less<T>, rb_tree_tag, tree_order_statistics_node
 #define all(x) (x).begin(), (x).end()
 #define rall(x) (x).rbegin(), (x).rend()
 #define lcm(a, b) ((a) * (b)) / __gcd((a), (b))
-#define gcd(a, b) __gcd((a), (b))
+#define gcd.,(a, b) __gcd((a), (b))
 #define yes cout << "YES\n"
 #define no cout << "NO\n"
 bool flag;
