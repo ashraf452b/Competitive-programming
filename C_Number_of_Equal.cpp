@@ -1,7 +1,7 @@
 /**
 *   In the name of Allah, the Most Gracious, the Most Merciful.
 *   Author : Ashraful Islam
-*   Time & Date : 17:46:17 17/10/2025
+*   Time & Date : 01:46:03 21/10/2025
 **/
 #include <bits/stdc++.h>
 using namespace std;
@@ -16,20 +16,22 @@ using namespace std;
 #define no cout << "NO\n"
 void rhafsolve()
 {
-    ll a,b,n;  cin>>a>>b>>n;
-    vector<ll> v(n);
-    for(int i=0;i<n;i++)    cin>>v[i];
-    ll sum=b;
+    int n,m;    cin>>n>>m;
+    vector<int> a(n),b(m);
+    for(int i=0;i<n;i++)    cin>>a[i];
+    for(int i=0;i<m;i++)    cin>>b[i];
+    ll cnt=0;
+    map<int,int> mp;
     for(int i=0;i<n;i++)
     {
-        ll val=min(a-1,v[i]);
-        sum+=val;
+        mp[a[i]]++;
     }
-    cout<<sum<<endl;
-    
+    for(int i=0;i<m;i++)
+    {
+        cnt+=mp[b[i]];
+    }
+    cout<<cnt<<endl;
 }
-
-
 //observation
 /**
  
@@ -38,7 +40,7 @@ int main() {
     MESSI;
 
     int t = 1;
-    cin >> t;
+    // cin >> t;
     while (t--) 
     {
         rhafsolve();

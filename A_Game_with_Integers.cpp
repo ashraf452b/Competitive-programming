@@ -1,7 +1,7 @@
 /**
 *   In the name of Allah, the Most Gracious, the Most Merciful.
 *   Author : Ashraful Islam
-*   Time & Date : 17:46:17 17/10/2025
+*   Time & Date : 21:46:21 18/10/2025
 **/
 #include <bits/stdc++.h>
 using namespace std;
@@ -16,20 +16,10 @@ using namespace std;
 #define no cout << "NO\n"
 void rhafsolve()
 {
-    ll a,b,n;  cin>>a>>b>>n;
-    vector<ll> v(n);
-    for(int i=0;i<n;i++)    cin>>v[i];
-    ll sum=b;
-    for(int i=0;i<n;i++)
-    {
-        ll val=min(a-1,v[i]);
-        sum+=val;
-    }
-    cout<<sum<<endl;
-    
+    int n;  cin>>n;
+    if(n%3==0) cout<<"Second"<<endl;
+    else cout<<"First"<<endl;
 }
-
-
 //observation
 /**
  

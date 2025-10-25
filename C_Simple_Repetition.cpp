@@ -1,7 +1,8 @@
+
 /**
 *   In the name of Allah, the Most Gracious, the Most Merciful.
 *   Author : Ashraful Islam
-*   Time & Date : 17:46:17 17/10/2025
+*   Time & Date : 00:06:00 21/10/2025
 **/
 #include <bits/stdc++.h>
 using namespace std;
@@ -14,22 +15,35 @@ using namespace std;
 #define gcd(a, b) __gcd((a), (b))
 #define yes cout << "YES\n"
 #define no cout << "NO\n"
+bool isPrime(ll n)
+{
+    if(n<2) return false;
+    for(int i=2;i*i<=n;i++)
+    {
+        if(n%i == 0)
+        {
+            return false;
+        }
+    }
+    return true;
+}
 void rhafsolve()
 {
-    ll a,b,n;  cin>>a>>b>>n;
-    vector<ll> v(n);
-    for(int i=0;i<n;i++)    cin>>v[i];
-    ll sum=b;
-    for(int i=0;i<n;i++)
+    ll n,k;    cin>>n>>k;
+
+    if(n==1 && k==2)
     {
-        ll val=min(a-1,v[i]);
-        sum+=val;
+        yes;
+        return;
     }
-    cout<<sum<<endl;
-    
+
+    if(isPrime(n) && k==1)
+    {
+        yes;
+        return;
+    }
+    no;
 }
-
-
 //observation
 /**
  

@@ -1,8 +1,3 @@
-/**
-*   In the name of Allah, the Most Gracious, the Most Merciful.
-*   Author : Ashraful Islam
-*   Time & Date : 17:46:17 17/10/2025
-**/
 #include <bits/stdc++.h>
 using namespace std;
 #define MESSI ios::sync_with_stdio(false); cin.tie(nullptr);
@@ -16,24 +11,21 @@ using namespace std;
 #define no cout << "NO\n"
 void rhafsolve()
 {
-    ll a,b,n;  cin>>a>>b>>n;
-    vector<ll> v(n);
+    int n,k;    cin>>n>>k;
+    vector<int> v(n);
     for(int i=0;i<n;i++)    cin>>v[i];
-    ll sum=b;
-    for(int i=0;i<n;i++)
+
+    for (int i = 0; i < k; i++) 
     {
-        ll val=min(a-1,v[i]);
-        sum+=val;
+        int nxt = v.back() + 1;
+        if(nxt > n) nxt = 1;
+        cout << nxt;
+        if (i < k - 1) 
+            cout << " ";
+        v.push_back(nxt);
     }
-    cout<<sum<<endl;
-    
+    cout << endl;
 }
-
-
-//observation
-/**
- 
- **/
 int main() {
     MESSI;
 

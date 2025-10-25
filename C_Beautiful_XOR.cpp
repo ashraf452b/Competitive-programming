@@ -1,7 +1,7 @@
 /**
 *   In the name of Allah, the Most Gracious, the Most Merciful.
 *   Author : Ashraful Islam
-*   Time & Date : 04:35:57 17/10/2025
+*   Time & Date : 21:28:29 17/10/2025
 **/
 #include <bits/stdc++.h>
 using namespace std;
@@ -14,44 +14,53 @@ using namespace std;
 #define gcd(a, b) __gcd((a), (b))
 #define yes cout << "YES\n"
 #define no cout << "NO\n"
+int   msb(int n)
+{
+    if (n == 0)
+        return -1;
+    return 31 - __builtin_clz(n);
+}
 void rhafsolve()
 {
-    string s;   cin>>s;
-    int zero=0,one=0;
-    for(char c : s)
-    {
-        if(c=='0') zero++;
-        else one++;
-    }
-    int val=1;
-    bool flag=true;
+    int a, b;
+    cin >> a >> b;
 
-    if(zero==0 or one==0)
+    if (a == b)
     {
-        cout<<"NET"<<endl;
-        return;
+        cout << 0 << endl<< endl;
     }
-    while(true)
+    else if (a < b)
     {
-        if(zero==0 or one==0)
+
+        if (  msb(a) <   msb(b))
         {
-            break;
-        }
-        if(val%2 != 0)
-        {
-            zero--;one--;
-            flag=true;
+            cout << -1 << endl;
         }
         else
         {
-            zero--;one--;
-            flag=false;
+
+            cout << 1 << endl;
+            cout << (a ^ b) << endl;
         }
-        val++;
     }
-    if(flag) cout<<"DA"<<endl;
-    else cout<<"NET"<<endl;
+    else
+    {
+
+        if ((a & b) == b)
+        {
+            cout << 1 << endl;
+            cout << (a ^ b) << endl;
+        }
+        else
+        {
+            int x1 = a ^ (a | b);
+            int x2 = (a | b) ^ b;
+            cout << 2 << endl;
+            cout << x1 << " " << x2 << endl;
+        }
+    }
 }
+
 //observation
 /**
  

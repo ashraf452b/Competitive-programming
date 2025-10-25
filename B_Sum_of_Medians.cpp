@@ -1,7 +1,7 @@
 /**
 *   In the name of Allah, the Most Gracious, the Most Merciful.
 *   Author : Ashraful Islam
-*   Time & Date : 17:46:17 17/10/2025
+*   Time & Date : 14:05:56 17/10/2025
 **/
 #include <bits/stdc++.h>
 using namespace std;
@@ -16,20 +16,30 @@ using namespace std;
 #define no cout << "NO\n"
 void rhafsolve()
 {
-    ll a,b,n;  cin>>a>>b>>n;
-    vector<ll> v(n);
-    for(int i=0;i<n;i++)    cin>>v[i];
-    ll sum=b;
-    for(int i=0;i<n;i++)
+    int n,k;    cin>>n>>k;
+    vector<int> v(n*k);
+    for(int i=0;i<n*k;i++)    cin>>v[i];
+
+    vector<int> ans;
+    int mid=(n-1)/2;
+    vector<int> sz;
+    for(int i=0;i<n*k;i++)
     {
-        ll val=min(a-1,v[i]);
-        sum+=val;
+        if(sz.size()==n)
+        {
+            int mid=(n-1)/2;
+            ans.pb(sz[mid]);
+            sz.clear();
+        }
+        sz.pb(v[i]);
     }
+    ll sum=0;
+    for(auto val : ans) sum+=val;
     cout<<sum<<endl;
     
+
+
 }
-
-
 //observation
 /**
  
