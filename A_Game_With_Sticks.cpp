@@ -1,7 +1,7 @@
 /**
 *   In the name of Allah, the Most Gracious, the Most Merciful.
 *   Author : Ashraful Islam
-*   Time & Date : 22:50:23 26/10/2025
+*   Time & Date : 08:03:08 02/11/2025
 **/
 #include <bits/stdc++.h>
 using namespace std;
@@ -16,43 +16,19 @@ using namespace std;
 #define no cout << "NO\n"
 void rhafsolve()
 {
-    int n,k;    cin>>n>>k;
-    vector<int> v(n);
-    for(int i=0;i<n;i++)   cin>>v[i];
-    int sum=0;
-    for(auto val : v) sum+=val;
-    if(sum==k) 
+    int a,b;    cin>>a>>b;
+    if(a>b)
     {
-        cout<<0<<endl;
-        return;
+        if(b%2==0) cout<<"Malvika"<<endl;
+        else cout<<"Akshat"<<endl;
     }
-    else if(sum<k)
+    else
     {
-        cout<<-1<<endl;
-        return ;
+        if(a%2) cout<<"Akshat"<<endl;
+        else cout<<"Malvika"<<endl;
     }
-    int cnt=0;
-    int l=0,r=0;
-    int cur=0;
-    while(r<n)
-    {
-        cur+=v[r];
-
-        while(cur>k)
-        {
-            cur-=v[l];
-            l++;
-        }
-        if(cur==k)
-        {
-            cnt=max(cnt,(r-l+1));
-        
-        }
-        r++;
-    }
-    cout<<n-cnt<<endl;
-
 }
+
 //observation
 /**
  
@@ -61,7 +37,7 @@ int main() {
     MESSI;
 
     int t = 1;
-    cin >> t;
+    // cin >> t;
     while (t--) 
     {
         rhafsolve();

@@ -1,7 +1,7 @@
 /**
 *   In the name of Allah, the Most Gracious, the Most Merciful.
 *   Author : Ashraful Islam
-*   Time & Date : 17:07:49 13/10/2025
+*   Time & Date : 15:44:02 10/11/2025
 **/
 #include <bits/stdc++.h>
 using namespace std;
@@ -16,11 +16,9 @@ using namespace std;
 #define no cout << "NO\n"
 void rhafsolve()
 {
-    int n;  cin>>n;
-    for(int i=0;i<n;i++)
-    {
-        cout<<"Hello World"<<endl;
-    }
+    int n;  cin>>n;;
+    cout<<"Barcelona Baby"<<endl;
+    cout<<n<<endl;
 }
 //observation
 /**
@@ -30,7 +28,7 @@ int main() {
     MESSI;
 
     int t = 1;
-    // cin >> t;
+    cin >> t;
     while (t--) 
     {
         rhafsolve();

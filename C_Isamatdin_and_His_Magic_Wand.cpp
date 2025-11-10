@@ -1,10 +1,15 @@
 /**
 *   In the name of Allah, the Most Gracious, the Most Merciful.
 *   Author : Ashraful Islam
-*   Time & Date : 22:50:23 26/10/2025
+*   Time & Date : 15:41:17 28/10/2025
 **/
 #include <bits/stdc++.h>
 using namespace std;
+#include <ext/pb_ds/assoc_container.hpp>
+#include <ext/pb_ds/tree_policy.hpp>
+using namespace __gnu_pbds;
+template <typename T>
+using pbds = tree<T, null_type, less<T>, rb_tree_tag, tree_order_statistics_node_update>;
 #define MESSI ios::sync_with_stdio(false); cin.tie(nullptr);
 #define ll long long
 #define pb push_back
@@ -16,42 +21,27 @@ using namespace std;
 #define no cout << "NO\n"
 void rhafsolve()
 {
-    int n,k;    cin>>n>>k;
+    int n;  cin>>n;
     vector<int> v(n);
-    for(int i=0;i<n;i++)   cin>>v[i];
-    int sum=0;
-    for(auto val : v) sum+=val;
-    if(sum==k) 
+    for(int i=0;i<n;i++)    cin>>v[i];
+    int odd=0,even=0;
+    for(int i=0;i<n;i++)
     {
-        cout<<0<<endl;
-        return;
+        if(v[i]%2==0)
+        even++;
+        else odd++;
     }
-    else if(sum<k)
+    if(even !=0 and odd !=0)
     {
-        cout<<-1<<endl;
-        return ;
+        sort(all(v));
+        for(auto val : v) cout<<val<<" ";
+        cout<<endl;
     }
-    int cnt=0;
-    int l=0,r=0;
-    int cur=0;
-    while(r<n)
+    else
     {
-        cur+=v[r];
-
-        while(cur>k)
-        {
-            cur-=v[l];
-            l++;
-        }
-        if(cur==k)
-        {
-            cnt=max(cnt,(r-l+1));
-        
-        }
-        r++;
+        for(auto val : v) cout<<val<<" ";
+        cout<<endl;
     }
-    cout<<n-cnt<<endl;
-
 }
 //observation
 /**

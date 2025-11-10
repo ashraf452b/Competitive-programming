@@ -1,7 +1,7 @@
 /**
 *   In the name of Allah, the Most Gracious, the Most Merciful.
 *   Author : Ashraful Islam
-*   Time & Date : 01:20:26 08/11/2025
+*   Time & Date : 20:32:54 05/11/2025
 **/
 #include <bits/stdc++.h>
 using namespace std;
@@ -16,15 +16,8 @@ using namespace std;
 #define no cout << "NO\n"
 void rhafsolve()
 {
-    int n;  cin>>n;
-    vector<int> v(n);
-    for(int i=0;i<n;i++)    cin>>v[i];
-    int val=INT_MIN;
-    for(int i=0;i<n;i+=2)
-    {
-        val=max(val,v[i]);
-    }
-    cout<<val<<endl;
+    int    a,b; cin>>a>>b;
+    if(a*b>=100) yes ; else no;
 }
 //observation
 /**
@@ -34,7 +27,7 @@ int main() {
     MESSI;
 
     int t = 1;
-    cin >> t;
+    // cin >> t;
     while (t--) 
     {
         rhafsolve();

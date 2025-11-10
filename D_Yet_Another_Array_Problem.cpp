@@ -1,7 +1,7 @@
 /**
 *   In the name of Allah, the Most Gracious, the Most Merciful.
 *   Author : Ashraful Islam
-*   Time & Date : 22:50:23 26/10/2025
+*   Time & Date : 20:47:57 28/10/2025
 **/
 #include <bits/stdc++.h>
 using namespace std;
@@ -14,44 +14,31 @@ using namespace std;
 #define gcd(a, b) __gcd((a), (b))
 #define yes cout << "YES\n"
 #define no cout << "NO\n"
+int primes[] = {2,3,5,7,11,13,17,19,23,29,31,37,41,43,47,53};
 void rhafsolve()
 {
-    int n,k;    cin>>n>>k;
-    vector<int> v(n);
-    for(int i=0;i<n;i++)   cin>>v[i];
-    int sum=0;
-    for(auto val : v) sum+=val;
-    if(sum==k) 
+    int n; cin>>n;
+    vector<ll> a(n);
+    for(int i=0;i<n;i++) cin>>a[i];
+    ll ans=-1;
+    for(int p:primes)
     {
-        cout<<0<<endl;
-        return;
-    }
-    else if(sum<k)
-    {
-        cout<<-1<<endl;
-        return ;
-    }
-    int cnt=0;
-    int l=0,r=0;
-    int cur=0;
-    while(r<n)
-    {
-        cur+=v[r];
-
-        while(cur>k)
+        bool flag=1;
+        for(int i=0;i<n;i++)
         {
-            cur-=v[l];
-            l++;
+            if(a[i]%p!=0)
+            {
+                flag=0;
+                break;
+            }
         }
-        if(cur==k)
+        if(flag==0)
         {
-            cnt=max(cnt,(r-l+1));
-        
+            ans=p;
+            break;
         }
-        r++;
     }
-    cout<<n-cnt<<endl;
-
+    cout<<ans<<endl;
 }
 //observation
 /**

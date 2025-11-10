@@ -1,7 +1,7 @@
 /**
 *   In the name of Allah, the Most Gracious, the Most Merciful.
 *   Author : Ashraful Islam
-*   Time & Date : 22:50:23 26/10/2025
+*   Time & Date : 01:17:11 26/10/2025
 **/
 #include <bits/stdc++.h>
 using namespace std;
@@ -16,42 +16,27 @@ using namespace std;
 #define no cout << "NO\n"
 void rhafsolve()
 {
-    int n,k;    cin>>n>>k;
+    int n;  cin>>n;
     vector<int> v(n);
-    for(int i=0;i<n;i++)   cin>>v[i];
-    int sum=0;
-    for(auto val : v) sum+=val;
-    if(sum==k) 
+    int  mx=INT_MIN;
+    for(int i=0;i<n;i++)
     {
-        cout<<0<<endl;
-        return;
+        cin>>v[i];
+        mx=max(v[i],mx);
     }
-    else if(sum<k)
-    {
-        cout<<-1<<endl;
-        return ;
-    }
-    int cnt=0;
-    int l=0,r=0;
-    int cur=0;
-    while(r<n)
-    {
-        cur+=v[r];
-
-        while(cur>k)
+    int ans=v[0];
+    int cur=v[0];
+    for(int i=1;i<n;i++)
+    {   
+        if((v[i]%2==0 && v[i-1]%2!=0) || (v[i]%2!=0 && v[i-1]%2==0))
         {
-            cur-=v[l];
-            l++;
+            // cur+=v[i];
+            cur=max(cur+v[i],v[i]);
         }
-        if(cur==k)
-        {
-            cnt=max(cnt,(r-l+1));
-        
-        }
-        r++;
+        else cur=v[i];
+        ans=max(cur,ans);
     }
-    cout<<n-cnt<<endl;
-
+    cout<<max(mx,ans)<<endl;
 }
 //observation
 /**
