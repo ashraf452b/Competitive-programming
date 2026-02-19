@@ -1,51 +1,75 @@
 /**
 *   In the name of Allah, the Most Gracious, the Most Merciful.
 *   Author : Ashraful Islam
-*   Time & Date : 03:21:49 20/07/2025
+*   Time & Date : 19:31:51 14/12/2025
 **/
 #include <bits/stdc++.h>
-#include <ext/pb_ds/assoc_container.hpp>
-#include <ext/pb_ds/tree_policy.hpp>
 using namespace std;
-using namespace __gnu_pbds;
-template <typename T>
-using pbds = tree<T, null_type, less<T>, rb_tree_tag, tree_order_statistics_node_update>;
-
-#define FAST_IO ios::sync_with_stdio(false); cin.tie(nullptr);
+#define MESSI ios::sync_with_stdio(false); cin.tie(0);
 #define ll long long
 #define pb push_back
 #define all(x) (x).begin(), (x).end()
+#define rall(x) (x).rbegin(), (x).rend()
 #define lcm(a, b) ((a) * (b)) / __gcd((a), (b))
 #define gcd(a, b) __gcd((a), (b))
+#define nl '\n'
 #define yes cout << "YES\n"
 #define no cout << "NO\n"
 void rhafsolve()
 {
-    ll n;
-    cin>>n;
-    vector<ll> v(n);
+    int n;      cin>>n;
+    vector<ll>v(n);
+    for(int i=0;i<n;i++)    cin>>v[i];
+
+    ll a=0,b=0;
     for(int i=0;i<n;i++)
     {
-        cin>>v[i];
-    }
-    ll oddgcd=0;
-    for(int i=1;i<n;i+2)
-    {
-        oddgcd=gcd(oddgcd,v[i]);
+        if(i%2==0)
+        {
+            a=gcd(a,v[i]);
+        }
+        else
+        {
+            b=gcd(b,v[i]);
+        }
     }
     bool flag=true;
     for(int i=0;i<n;i+=2)
     {
-        if(oddgcd%i)
+        if(v[i]%b==0)
         {
             flag=false;
             break;
         }
     }
+    
+    if(flag) 
+    {
+        cout<<b<<nl;
+        return;
+    }
+    else 
+    {
+        flag=true;
+        for(int i=1;i<n;i+=2)
+        {
+            if(v[i]%a==0)
+            {
+                flag=false;
+                break;
+            }
+        }
+    }
+    if(flag) cout<<a<<nl;
+    else cout<<0<<nl;
 
 }
+//observation
+/**
+ 
+ **/
 int main() {
-    FAST_IO;
+    MESSI;
 
     int t = 1;
     cin >> t;

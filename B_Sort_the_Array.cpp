@@ -1,75 +1,82 @@
 /**
 *   In the name of Allah, the Most Gracious, the Most Merciful.
 *   Author : Ashraful Islam
-*   Time & Date : 01:49:22 25/08/2025
+*   Time & Date : 03:04:04 03/12/2025
 **/
 #include <bits/stdc++.h>
-#include <ext/pb_ds/assoc_container.hpp>
-#include <ext/pb_ds/tree_policy.hpp>
 using namespace std;
-using namespace __gnu_pbds;
-template <typename T>
-using pbds = tree<T, null_type, less<T>, rb_tree_tag, tree_order_statistics_node_update>;
-
-#define MESSI ios::sync_with_stdio(false); cin.tie(nullptr);
+#define MESSI ios::sync_with_stdio(false); cin.tie(0);
 #define ll long long
 #define pb push_back
 #define all(x) (x).begin(), (x).end()
 #define rall(x) (x).rbegin(), (x).rend()
 #define lcm(a, b) ((a) * (b)) / __gcd((a), (b))
 #define gcd(a, b) __gcd((a), (b))
+#define nline '\n'
 #define yes cout << "YES\n"
 #define no cout << "NO\n"
-bool flag;
+
 void rhafsolve()
 {
-    int n;
-    cin>>n;
+    int n; cin>>n;
     vector<int> v(n);
     for(int i=0;i<n;i++) cin>>v[i];
+
     if(is_sorted(all(v)))
     {
-        cout<<"yes"<<endl;
-        cout<<1<<" "<<1<<endl;
+        cout<<"yes"<<nline;
+        cout<<1<<" "<<1<<nline;
         return;
     }
-    int idx=0;
-    int i;
-    for( i=0;i<n-1;i++)
+
+    if(is_sorted(rall(v)))
+    {
+        cout<<"yes"<<nline;
+        cout<<1<<" "<<n<<nline;
+        return;
+    }
+
+    int a=-1,b=-1;
+
+    for(int i=0;i<n-1;i++)
     {
         if(v[i]>v[i+1])
         {
-            idx=i;
+            a=i;
             break;
         }
     }
-    int ind=-1;
-    for(int j=n-1;j>i;j--)
+
+    for(int i=n-1;i>a-1;i--)
     {
-        if(v[j]<v[j-1])
+        if(v[i]<v[i-1])
         {
-            ind=j;
+            b=i;
             break;
         }
     }
-    if(ind != -1)
-        reverse(v.begin()+idx,v.begin()+ind+1);  
-            else
-                reverse(v.begin()+idx,v.end());
-    if(is_sorted(all(v)))
+
+    if(a == -1 || b== -1)
     {
-        cout<<"yes"<<endl;
-        cout<<idx+1<<" "<<ind+1<<endl;
+        cout<<"no"<<nline;
         return;
     }
-    cout<<"no"<<endl;
-
-
+    reverse(v.begin()+a,v.begin()+b+1);
+    if(is_sorted(all(v)))
+    {
+        cout<<"yes"<<nline;
+        cout<<++a<<" "<<++b<<nline;
+    }
+    else cout<<"no"<<nline;
 }
+
 //observation
 /**
  
- **/
+2 37 27 4 69
+1 2 4 3 5 6
+
+**/
 int main() {
     MESSI;
 

@@ -1,11 +1,11 @@
 /**
 *   In the name of Allah, the Most Gracious, the Most Merciful.
 *   Author : Ashraful Islam
-*   Time & Date : 20:16:56 10/11/2025
+*   Time & Date : 19:08:24 26/11/2025
 **/
 #include <bits/stdc++.h>
 using namespace std;
-#define MESSI ios::sync_with_stdio(false); cin.tie(nullptr);
+#define MESSI ios::sync_with_stdio(false); cin.tie(0);
 #define ll long long
 #define pb push_back
 #define all(x) (x).begin(), (x).end()
@@ -16,9 +16,9 @@ using namespace std;
 #define no cout << "NO\n"
 void rhafsolve()
 {
-    ll n,k; cin>>n>>k;
+    ll n,k;     cin>>n>>k;
     vector<ll> v(n);
-    for(ll i=0;i<n;i++)     cin>>v[i];
+    for(int i=0;i<n;i++)    cin>>v[i];
 
     int l=0,r=0;
     ll sum=0;
@@ -26,13 +26,14 @@ void rhafsolve()
     while(r<n)
     {
         sum+=v[r];
-        while(sum>k && l<=r)
+        while(sum>k)
         {
             sum-=v[l];
             l++;
         }
         ans+=(r-l+1);
         r++;
+
     }
     cout<<ans<<endl;
 }

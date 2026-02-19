@@ -1,11 +1,12 @@
+
 /**
 *   In the name of Allah, the Most Gracious, the Most Merciful.
 *   Author : Ashraful Islam
-*   Time & Date : 18:19:20 04/11/2025
+*   Time & Date : 22:04:38 26/11/2025
 **/
 #include <bits/stdc++.h>
 using namespace std;
-#define MESSI ios::sync_with_stdio(false); cin.tie(nullptr);
+#define MESSI ios::sync_with_stdio(false); cin.tie(0);
 #define ll long long
 #define pb push_back
 #define all(x) (x).begin(), (x).end()
@@ -19,27 +20,25 @@ void rhafsolve()
     ll n,k;    cin>>n>>k;
     vector<ll> v(n);
     for(int i=0;i<n;i++)    cin>>v[i];
-
-    ll ans=0,l=0,r=0;
     ll sum=0;
+    ll ans=0;
+    int l=0,r=0;
     while(r<n)
     {
         sum+=v[r];
-        if(sum<=k)
-        {
-            ans=max(ans,r-l+1);
-        }
-        else
+        while(sum>k)
         {
             sum-=v[l];
             l++;
-     
         }
+        ll val=r-l+1;
+        ans=max(ans,val);
         r++;
-        
     }
     cout<<ans<<endl;
     
+    
+
 }
 //observation
 /**
@@ -57,3 +56,5 @@ int main() {
 
     return 0;
 }
+
+
