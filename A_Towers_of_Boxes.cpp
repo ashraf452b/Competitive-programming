@@ -1,7 +1,7 @@
 /**
 *   In the name of Allah, the Most Gracious, the Most Merciful.
 *   Author : Ashraful Islam
-*   Time & Date : 01:45:49 25/02/2026
+*   Time & Date : 14:42:54 27/02/2026
 **/
 #include <bits/stdc++.h>
 using namespace std;
@@ -17,20 +17,10 @@ using namespace std;
 #define no cout << "NO\n"
 void rhafsolve()
 {
-    int n;  cin>>n;
-    vector<int> v(n);
-    for(int i=0;i<n;i++)    cin>>v[i];
-    int ans=0,cnt=0;
-    for(int i=0;i<n;i++)
-    {
-        if(v[i]==0)
-        {
-            cnt=0;
-        }
-        else cnt++;
-        ans=max(cnt,ans);
-    }
-   cout<<ans<<nl;
+    int n,m,d;  cin>>n>>m>>d;
+    int mn=(d/m)+1;
+    cout<<(n+mn-1)/mn<<nl;
+
 }
 //observation
 /**

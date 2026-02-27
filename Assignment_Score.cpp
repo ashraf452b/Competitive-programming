@@ -1,7 +1,7 @@
 /**
 *   In the name of Allah, the Most Gracious, the Most Merciful.
 *   Author : Ashraful Islam
-*   Time & Date : 01:45:49 25/02/2026
+*   Time & Date : 23:08:53 26/02/2026
 **/
 #include <bits/stdc++.h>
 using namespace std;
@@ -19,18 +19,27 @@ void rhafsolve()
 {
     int n;  cin>>n;
     vector<int> v(n);
-    for(int i=0;i<n;i++)    cin>>v[i];
-    int ans=0,cnt=0;
+    int sum=0;
     for(int i=0;i<n;i++)
     {
-        if(v[i]==0)
-        {
-            cnt=0;
-        }
-        else cnt++;
-        ans=max(cnt,ans);
+        int x;  cin>>x;
+        sum+=x;
     }
-   cout<<ans<<nl;
+    int need=(n+1)*100/2;
+    int ans=need-sum;
+    if(ans>100)
+    {
+        cout<<-1<<nl;
+    }
+    else if(ans<0)
+    {
+        cout<<0<<nl;
+    }
+    else cout<<ans<<nl;
+
+    
+    
+
 }
 //observation
 /**

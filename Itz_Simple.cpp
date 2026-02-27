@@ -1,7 +1,7 @@
 /**
 *   In the name of Allah, the Most Gracious, the Most Merciful.
 *   Author : Ashraful Islam
-*   Time & Date : 01:45:49 25/02/2026
+*   Time & Date : 22:35:32 23/02/2026
 **/
 #include <bits/stdc++.h>
 using namespace std;
@@ -17,20 +17,25 @@ using namespace std;
 #define no cout << "NO\n"
 void rhafsolve()
 {
-    int n;  cin>>n;
+    int n,k,p;  cin>>n>>k>>p;
     vector<int> v(n);
     for(int i=0;i<n;i++)    cin>>v[i];
-    int ans=0,cnt=0;
-    for(int i=0;i<n;i++)
-    {
-        if(v[i]==0)
-        {
-            cnt=0;
-        }
-        else cnt++;
-        ans=max(cnt,ans);
+
+    sort(all(v));
+    int ved=v.back()+k,varun=0+p;
+    for(int i=0;i<n-1;i++)
+    {   
+        varun+=v[i];
     }
-   cout<<ans<<nl;
+    if(ved>varun)
+    {
+        cout<<"Ved"<<endl;
+    }
+    else if(varun>ved)
+    {
+        cout<<"Varun"<<nl;
+    }
+    else cout<<"Equal"<<nl;
 }
 //observation
 /**

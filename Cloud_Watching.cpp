@@ -1,7 +1,7 @@
 /**
 *   In the name of Allah, the Most Gracious, the Most Merciful.
 *   Author : Ashraful Islam
-*   Time & Date : 01:45:49 25/02/2026
+*   Time & Date : 22:59:16 26/02/2026
 **/
 #include <bits/stdc++.h>
 using namespace std;
@@ -17,20 +17,9 @@ using namespace std;
 #define no cout << "NO\n"
 void rhafsolve()
 {
-    int n;  cin>>n;
-    vector<int> v(n);
-    for(int i=0;i<n;i++)    cin>>v[i];
-    int ans=0,cnt=0;
-    for(int i=0;i<n;i++)
-    {
-        if(v[i]==0)
-        {
-            cnt=0;
-        }
-        else cnt++;
-        ans=max(cnt,ans);
-    }
-   cout<<ans<<nl;
+    ll a, b;    cin>>a>>b;
+    if(3*a<=b) cout<<"Rain"<<nl;
+    else cout<<"Dry"<<nl;
 }
 //observation
 /**
@@ -40,7 +29,7 @@ int main() {
     MESSI;
 
     int t = 1;
-    cin >> t;
+    // cin >> t;
     while (t--) 
     {
         rhafsolve();

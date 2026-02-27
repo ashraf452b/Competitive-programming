@@ -1,7 +1,7 @@
 /**
 *   In the name of Allah, the Most Gracious, the Most Merciful.
 *   Author : Ashraful Islam
-*   Time & Date : 01:45:49 25/02/2026
+*   Time & Date : 21:10:11 26/02/2026
 **/
 #include <bits/stdc++.h>
 using namespace std;
@@ -15,22 +15,31 @@ using namespace std;
 #define nl '\n'
 #define yes cout << "YES\n"
 #define no cout << "NO\n"
+bool solve(string& a)
+{
+    // for(int i=0;i+1<a.size();i+=2)
+    // {
+    //     if(a[i]!='?' && a[i+1] !='?' && a[i]==a[i+1] )
+    //     return false;
+    // }
+    // return true;
+    
+}
 void rhafsolve()
 {
     int n;  cin>>n;
-    vector<int> v(n);
-    for(int i=0;i<n;i++)    cin>>v[i];
-    int ans=0,cnt=0;
-    for(int i=0;i<n;i++)
+    string s;   cin>>s;
+    if(n%2 !=0)
     {
-        if(v[i]==0)
+        if(s[0]=='b')
         {
-            cnt=0;
+            no;
+            return;
         }
-        else cnt++;
-        ans=max(cnt,ans);
+        else s.erase(0,1);
     }
-   cout<<ans<<nl;
+    if(solve(s)) yes; else no;
+    
 }
 //observation
 /**
@@ -48,3 +57,4 @@ int main() {
 
     return 0;
 }
+
