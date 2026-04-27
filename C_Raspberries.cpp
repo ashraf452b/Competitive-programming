@@ -1,36 +1,43 @@
 /**
 *   In the name of Allah, the Most Gracious, the Most Merciful.
 *   Author : Ashraful Islam
-*   Time & Date : 03:23:02 15/10/2025
+*   Time & Date : 02:24:29 13/04/2026
 **/
 #include <bits/stdc++.h>
 using namespace std;
-#define MESSI ios::sync_with_stdio(false); cin.tie(nullptr);
+#define MESSI ios::sync_with_stdio(false); cin.tie(0);
 #define ll long long
 #define pb push_back
 #define all(x) (x).begin(), (x).end()
 #define rall(x) (x).rbegin(), (x).rend()
 #define lcm(a, b) ((a) * (b)) / __gcd((a), (b))
 #define gcd(a, b) __gcd((a), (b))
+#define nl '\n'
 #define yes cout << "YES\n"
 #define no cout << "NO\n"
 void rhafsolve()
 {
     int n,k;    cin>>n>>k;
     vector<int> v(n);
-    for(int i=0;i<n;i++)    cin>>v[i];
+    for(auto&i:v) cin>>i;
+    int even=0;
+    int ans=k;
+    for(auto&i : v)
+    {
+        if(i%2==0) even++;
+        if(i%k==0) ans=0;
+        ans=min(ans,k-i%k);
 
-    int even=0,odd=0;
-    for(int i=0;i<n;i++)
-    {
-        if(v[i]%2 ==0) even++;
-        else odd++;
     }
-    if(k%2==0)
+    if(k==4)
     {
-        
+        if(even>=2) ans=0;
+        else if(even==1) ans=min(ans,1);
+        else ans=min(ans,2);
     }
+    cout<<ans<<nl;
 }
+//
 //observation
 /**
  

@@ -19,7 +19,14 @@ void rhafsolve()
 {
     int n,m,d;  cin>>n>>m>>d;
     int mn=(d/m)+1;
-    cout<<(n+mn-1)/mn<<nl;
+    // cout<<(n+mn-1)/mn<<nl;
+    int ans=0;
+    while(n>0)
+    {
+        n-=mn;
+        ans++;
+    }
+    cout<<ans<<nl;
 
 }
 //observation

@@ -4,12 +4,7 @@
 *   Time & Date : 17:55:21 02/08/2025
 **/
 #include <bits/stdc++.h>
-#include <ext/pb_ds/assoc_container.hpp>
-#include <ext/pb_ds/tree_policy.hpp>
 using namespace std;
-using namespace __gnu_pbds;
-template <typename T>
-using pbds = tree<T, null_type, less<T>, rb_tree_tag, tree_order_statistics_node_update>;
 
 #define FAST_IO ios::sync_with_stdio(false); cin.tie(nullptr);
 #define ll long long
@@ -24,22 +19,37 @@ void rhafsolve()
 {
     int n;
     cin>>n;
+
     vector<int> v(n);
-    ll sum=0;
+    map<int,int> mp;
+
     for(int i=0;i<n;i++)
     {
         cin>>v[i];
-        sum+=v[i];
+        mp[v[i]]++;
     }
-    if(n<=2)
+
+    if(mp.size()==1)
     {
         yes;
         return;
     }
-    if(sum%2==0)
-        yes;
-            else no;
 
+    if(mp.size()>2)
+    {
+        no;
+        return;
+    }
+
+    int a=0,b=0;
+    for(auto x:mp)
+    {
+        if(a==0) a=x.second;
+        else b=x.second;
+    }
+
+    if(abs(a-b)<=1) yes;
+    else no;
 }
 int main() {
     FAST_IO;

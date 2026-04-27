@@ -1,0 +1,67 @@
+/**
+*   In the name of Allah, the Most Gracious, the Most Merciful.
+*   Author : Ashraful Islam
+*   Time & Date : 02:30:33 06/08/2025
+**/
+#include <bits/stdc++.h>
+#include <ext/pb_ds/assoc_container.hpp>
+#include <ext/pb_ds/tree_policy.hpp>
+using namespace std;
+using namespace __gnu_pbds;
+template <typename T>
+using pbds = tree<T, null_type, less<T>, rb_tree_tag, tree_order_statistics_node_update>;
+
+#define FAST_IO ios::sync_with_stdio(false); cin.tie(nullptr);
+#define ll long long
+#define pb push_back
+#define all(x) (x).begin(), (x).end()
+#define rall(x) (x).rbegin(), (x).rend()
+#define lcm(a, b) ((a) * (b)) / __gcd((a), (b))
+#define gcd(a, b) __gcd((a), (b))
+#define yes cout << "YES\n"
+#define no cout << "NO\n"
+bool flag;
+void rhafsolve()
+{
+    string s;
+    cin >> s;
+
+    int n = s.size();
+    int ans = INT_MAX;
+    for (int j = 'a'; j <= 'z'; j++)
+    {
+        int c = 0;
+        int mx = 0;
+        for (int i = 0; i < n; i++)
+        {
+            if (s[i] == j)
+            {
+                mx = max(mx, c);
+                c = 0;
+            }
+            else
+            {
+                c++;
+            }
+        }
+        mx = max(mx, c);
+        if (mx != 0)
+            ans = min(ans, (int)log2(mx) + 1);
+        else
+            ans = 0;
+    }
+
+    cout << ans << endl;
+}
+int main() {
+    FAST_IO;
+
+    int t = 1;
+    cin >> t;
+    while (t--) 
+    {
+        rhafsolve();
+    }
+
+    return 0;
+}
